@@ -18,10 +18,12 @@ class Channel:
             yield value
 
 
-class DataQ:
-    """
+class DataStamp:
+    """数据印记：
+    用于需要重复发送次数标记
+    数据形式：{"数据MD5":3}
     用于确认UDP回复通道
-    - md5_set 回复确认设置，否则每两秒再发送一次，一共发送9次，期间有确认停止发送.使用buf.to_md5()获得并设置MD5
+    - md5_set 回复确认设置，否则每两秒再发送一次，一共发送3次，期间有确认停止发送.使用buf.to_md5()获得并设置MD5
     """
     def __init__(self):
         self.q = Queue()
@@ -35,13 +37,13 @@ class DataQ:
         self.md5_dict.pop(md5,None)
 
     def upload(self,buf:Buf):
-        """上传"""
+        """上传Key:Value，初始标记3"""
         if buf.md5 is None:
             self.md5_dict[buf.to_md5()] = 3
         self.q.put(buf)
 
     def down(self):
-        """下载"""
+        """下载数据，标记减一。如果标记为零，则将Key:Value抹除"""
         buf:Buf = self.q.get()
         seq = self.md5_dict.get(buf.md5,0) - 1
         if seq >= 0:
@@ -57,7 +59,7 @@ class DataQ:
 class Task:
     send_channel = Channel()
     receive_channel = Channel()
-    check_queue = DataQ()
+    check_queue = DataStamp()
 
     async def __init__(self):
         """启动UDP服务"""
