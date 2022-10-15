@@ -3,7 +3,7 @@ from afore.utils import RqsH
 from .server import ProvinceS
 
 
-class ProvinceV(R2H):
+class ProvinceV(RqsH):
     """省"""
     @Rsp.response
     @JWT.jwt_sign_auth

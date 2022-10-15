@@ -1,10 +1,9 @@
 from afore.middleware import Rsp,JWT
 from afore.utils import RqsH
-from tornado.web import RequestHandler
 from .server import CityS
 
 
-class CityV(R2H):
+class CityV(RqsH):
     """市"""
     @Rsp.response
     @JWT.jwt_sign_auth
