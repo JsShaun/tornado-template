@@ -1,8 +1,9 @@
-from utils.middleware import Rsp,R2H
+from afore.middleware import Rsp,JWT
+from afore.utils import RqsH
 from .server import RolesS
 
 
-class RolesV(R2H):
+class RolesV(RqsH):
     @Rsp.response
     def get(self):
         """浏览角色"""

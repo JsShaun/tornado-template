@@ -1,5 +1,5 @@
 from asyncinit import asyncinit
-from config.local import UDP
+from afore.config import UDP
 import trio
 from queue import Queue
 from model.buffer import Buf,Msg

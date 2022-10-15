@@ -13,11 +13,9 @@ class RedisDB():
         if not self.__pool:
             self.__class__.__pool = redis.ConnectionPool(host=host, port=port, db=db)
         self.__get_conn()
-        
 
     def __get_conn(self):
         self.link = redis.Redis(connection_pool=self.__pool)
-
 
     def store_str(self, alias:str, local_str:str, ex:pd.Timedelta, *args, **kwargs) -> bool:
         '''存储Str数据类型的缓存'''
@@ -70,6 +68,6 @@ if __name__ == '__main__':
     HOST = "192.168.10.235"
     PORT = 6379
     DB = 1
-    hp = Helper(host=HOST,port=PORT,db=DB)
+    hp = RedisDB(host=HOST,port=PORT,db=DB)
     a = hp.exists('dp:1')
     print(a)

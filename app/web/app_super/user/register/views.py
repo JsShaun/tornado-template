@@ -1,9 +1,10 @@
 
-from utils.middleware import Rsp,JWT,R2H
+from afore.middleware import Rsp,JWT
+from afore.utils import RqsH
 from .server import RegisterS
 
 
-class RegisterV(R2H):
+class RegisterV(RqsH):
     @Rsp.response
     @JWT.jwt_sign_auth
     def post(self):

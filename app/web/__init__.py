@@ -1,12 +1,12 @@
 from tornado.httpserver import HTTPServer
 import tornado.ioloop
 import tornado.web
-from utils.middleware import AppT,R2H
+from afore.utils import AppT,RqsH
 from . import app_public,app_super
-from config.local import Web
+from afore.config import Web
 
 
-class Hello(R2H):
+class Hello(RqsH):
     def get(self):
         self.write("Hello Tornado!!!")
 

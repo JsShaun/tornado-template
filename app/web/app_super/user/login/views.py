@@ -1,7 +1,8 @@
-from utils.middleware import Rsp,JWT,R2H
+from afore.middleware import Rsp,JWT
+from afore.utils import RqsH
 from .server import LoginS
 
-class LoginV(R2H):
+class LoginV(RqsH):
     
     @Rsp.response
     def post(self):

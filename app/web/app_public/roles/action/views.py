@@ -1,7 +1,8 @@
-from utils.middleware import Rsp,R2H
+from afore.middleware import Rsp,JWT
+from afore.utils import RqsH
 from .server import ActionS
 
-class ActionV(R2H):
+class ActionV(RqsH):
 
     @Rsp.response
     def post(self):

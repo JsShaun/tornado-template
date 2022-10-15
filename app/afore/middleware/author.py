@@ -1,6 +1,6 @@
 from tornado.web import RequestHandler
 from datetime import datetime,timedelta
-from .buffer import G
+from afore.utils import G
 from .answer import Rsp
 import wrapt
 import jwt

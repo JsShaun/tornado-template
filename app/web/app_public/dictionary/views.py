@@ -1,8 +1,9 @@
-from utils.middleware import Rsp,JWT,R2H
+from afore.middleware import Rsp,JWT
+from afore.utils import RqsH
 from .server import DictS
 
 
-class DictV(R2H):
+class DictV(RqsH):
     @Rsp.response
     @JWT.jwt_sign_auth
     def post(self):

@@ -1,6 +1,5 @@
 from tornado.web import RequestHandler
-from tornado.escape import json_decode
-from .buffer import G
+from afore.utils import G
 import wrapt
 from json import dumps,JSONEncoder
 import pandas as pd
@@ -207,13 +206,7 @@ class Rsp(Exception):
             G.freed_uid()
 
 
-class Rhandler(RequestHandler):
-    def prepare(self):
-        content_type:str = self.request.headers.get("content-type","")
-        if content_type.startswith('application/json'):
-            body = self.request.body
-            self.jsBody = json_decode(body) if body else {}
-        self.jsQuery = { k: self.get_argument(k) for k in self.request.arguments }
+
         
         
 

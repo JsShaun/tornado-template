@@ -1,6 +1,5 @@
-from utils.db.helper import MgDB
-from config.db import GodotDB as mg
-from config.local import timestamp
+from afore.config import GodotDB
+from afore.config import timestamp
 import pandas as pd
 
 
@@ -8,7 +7,7 @@ import pandas as pd
 class GodotM:
     def __init__(self,collection) -> None:
         self.timestamp = timestamp()
-        self.col = MgDB(host=mg.HOST,port=mg.PORT,username=mg.USER,password=mg.PASSWORD,database=mg.DB,collection=collection)
+        self.col = GodotDB.gtcol(collection)
 
     def update(self,where,update,*args,**kwargs):
         rst = self.col.update_many(where,update,upsert=True,*args,**kwargs)

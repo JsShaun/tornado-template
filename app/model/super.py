@@ -1,7 +1,8 @@
-from .db.pgsql import CRUD,RedisDB,PgDB
-from utils.middleware import Rsp,G
-from config import Session,CacheDF,BliDB
-from config.local import localtime
+from  afore.db import CRUD
+from afore.middleware import Rsp
+from afore.utils import G
+from afore.config import Session,CacheDF,BliDB
+from afore.config import localtime
 
 
 class SuperM(CRUD):
@@ -9,9 +10,9 @@ class SuperM(CRUD):
         CRUD.__init__(self,schema="super",table=table)
         self.now = localtime()
         self.uid = 0
-        self.con=PgDB(host=BliDB.HOST,port=BliDB.PORT,user=BliDB.DBUSER,password=BliDB.DBPWD,database=BliDB.DBNAME)
-        self.session = RedisDB(host=Session.HOST,port=Session.PORT,db=Session.DB)
-        self.CacheDF = RedisDB(host=CacheDF.HOST,port=CacheDF.PORT,db=CacheDF.DB)
+        self.con=BliDB.dbcon()
+        self.session = Session.dbcon()
+        self.CacheDF = CacheDF.dbcon()
     
         self.gu = G.get_uid()
         if "super" in self.gu:

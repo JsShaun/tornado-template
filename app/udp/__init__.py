@@ -1,5 +1,5 @@
 from .import receive_and_send
-from utils import new_thread
+from afore.utils import new_thread
 import trio
 
 

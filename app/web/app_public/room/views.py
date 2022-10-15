@@ -1,8 +1,9 @@
-from utils.middleware import Rsp,R2H
+from afore.middleware import Rsp,JWT
+from afore.utils import RqsH
 from .server import RoomS
 
 
-class RoomV(R2H):
+class RoomV(RqsH):
     @Rsp.response
     def put(self):
         """进入房间"""

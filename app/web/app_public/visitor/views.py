@@ -1,9 +1,10 @@
-from utils.middleware import Rsp,R2H
+from afore.middleware import Rsp,JWT
+from afore.utils import RqsH
 from .server import LoginS
 
 
 
-class VisitV(R2H):
+class VisitV(RqsH):
 
     @Rsp.response
     async def post(self):
