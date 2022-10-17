@@ -1,5 +1,6 @@
 wrapt==1.14
 trio==0.21
+SQLAlchemy
 pandas==1.4
 asyncinit==0.2
 Werkzeug==2.1

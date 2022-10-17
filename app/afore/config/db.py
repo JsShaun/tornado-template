@@ -4,7 +4,7 @@ from afore.db.helper import MgDB
 
 
 class BliDB:
-    HOST = "127.0.0.1"
+    HOST = "192.168.3.42"
     PORT = 5432
     DBUSER = "postgres"
     DBPWD = "123456"
@@ -16,7 +16,7 @@ class BliDB:
 
 
 class Session:
-    HOST = "127.0.0.1"
+    HOST = "192.168.3.42"
     PORT = 6379
     DB = 0
 
@@ -26,7 +26,7 @@ class Session:
 
 
 class CacheDF:
-    HOST = "127.0.0.1"
+    HOST = "192.168.3.42"
     PORT = 6379
     DB = 1
 
@@ -35,7 +35,7 @@ class CacheDF:
         return RedisDB(host=cls.HOST,port=cls.PORT,db=cls.DB)
 
 class GodotDB:
-    HOST = "127.0.0.1"
+    HOST = "192.168.3.42"
     PORT = 27017
     USER = "root"
     PASSWORD = ""

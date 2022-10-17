@@ -16,5 +16,11 @@
 - docker run --name tornado-web -it -p 5016:5016 -p 5016:5016/udp tornado:web python3 -u main.py
 ### 更新当前运行容器
 - docker run --name $(docker rm $(docker stop tornado-web)) -p 5016:5016 -p 5016:5016/udp -d tornado:web python3 -u main.py
+
 ### Docker清除未挂载的所有资源
 - docker system prune
+
+
+
+### apifox链接
+- https://www.apifox.cn/apidoc/shared-fea802f2-047b-4675-959f-c10ae71da922
