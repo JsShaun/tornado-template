@@ -3,11 +3,12 @@
 -- ----------------------------
 DROP TABLE IF EXISTS "public"."city";
 CREATE TABLE "public"."city" (
+  
   "province_code" varchar COLLATE "pg_catalog"."default" NOT NULL,
   "city_code" varchar COLLATE "pg_catalog"."default" NOT NULL,
   "city_name" varchar COLLATE "pg_catalog"."default" NOT NULL,
   "is_delete" bool NOT NULL,
-  "id" int2 NOT NULL DEFAULT nextval('city3_id_seq'::regclass)
+  "id" serial NOT NULL
 );
 
 

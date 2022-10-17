@@ -6,8 +6,8 @@ CREATE TABLE "public"."province" (
   "province_code" varchar COLLATE "pg_catalog"."default" NOT NULL,
   "province_name" varchar COLLATE "pg_catalog"."default" NOT NULL,
   "is_delete" bool NOT NULL,
-  "id" int2 NOT NULL DEFAULT nextval('province_id_seq'::regclass),
-  "is_open" bool NOT NULL DEFAULT false
+  "is_open" bool NOT NULL DEFAULT false,
+  "id" serial NOT NULL
 );
 
 

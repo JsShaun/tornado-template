@@ -8,7 +8,7 @@ CREATE TABLE "public"."county" (
   "county_code" varchar COLLATE "pg_catalog"."default" NOT NULL,
   "county_name" varchar COLLATE "pg_catalog"."default" NOT NULL,
   "is_delete" bool NOT NULL,
-  "id" int2 NOT NULL DEFAULT nextval('county_id_seq'::regclass)
+  "id" serial NOT NULL
 );
 
 

@@ -7,7 +7,7 @@ class BliDB:
     HOST = "127.0.0.1"
     PORT = 5432
     DBUSER = "postgres"
-    DBPWD = ""
+    DBPWD = "123456"
     DBNAME = "postgres"
     
     @classmethod
